@@ -14,12 +14,20 @@ pipeline {
             }
         }
 
-        stage('Terraform Formating') {
+        stage('Terraform Validate') {
             steps {
                 dir('eks') {
                     sh 'terraform fmt'
                 }
             }
         }
+
+        stage('Terraform (Plan)') {
+            steps {
+                dir('eks') {
+                    sh 'terraform plan'
+                }
+            }
+        }        
     }
 }
