@@ -13,5 +13,13 @@ pipeline {
                 }
             }
         }
+
+        stage('Terraform Formating') {
+            steps {
+                dir('eks') {
+                    sh 'terraform fmt'
+                }
+            }
+        }
     }
 }
