@@ -42,7 +42,7 @@ pipeline {
         stage('Deploy OdooCRM') {
             steps {
                 dir('eks') {
-                    sh 'aws eks update-kubeconfig --name odoocrm'
+                    sh 'aws eks update-kubeconfig --name my-eks-cluster'
                     sh 'helm repo add bitnami https://charts.bitnami.com/bitnami'
                     sh 'helm repo update'
                     sh 'helm install my-odoo bitnami/odoo --version 21.2.9'
