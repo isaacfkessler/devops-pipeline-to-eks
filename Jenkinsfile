@@ -43,7 +43,6 @@ pipeline {
             steps {
                 dir('eks') {
                     sh 'aws eks update-kubeconfig --name my-eks-cluster'
-                    sh 'helm plugin update'
                     sh 'helm repo add bitnami https://charts.bitnami.com/bitnami'
                     sh 'helm repo update'
                     sh 'helm install my-release oci://registry-1.docker.io/bitnamicharts/odoo'
