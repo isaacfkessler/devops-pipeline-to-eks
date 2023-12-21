@@ -34,7 +34,7 @@ pipeline {
         stage('Creating Infrastructure on AWS') {
             steps {
                 dir('eks') {
-                    sh 'terraform apply --auto-approve'
+                    sh 'terraform $action --auto-approve'
                 }
             }
         }
