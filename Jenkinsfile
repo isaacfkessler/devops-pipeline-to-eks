@@ -45,7 +45,7 @@ pipeline {
                     sh 'aws eks update-kubeconfig --name my-eks-cluster'
                     sh 'helm repo add bitnami https://charts.bitnami.com/bitnami'
                     sh 'helm repo update'
-                    sh 'helm install my-odoo bitnami/odoo --version 21.2.9'
+                    sh 'helm install my-release oci://registry-1.docker.io/bitnamicharts/odoo'
                 }
             }
         } 
