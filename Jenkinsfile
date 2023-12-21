@@ -22,12 +22,33 @@ pipeline {
             }
         }
 
-        stage('Terraform (Plan)') {
+        stage('Terraform Preview Infrastructure') {
             steps {
                 dir('eks') {
                     sh 'terraform plan'
                 }
+                input(message: "Are you sure to proceed?"), ok: "Yes, approved"
             }
         }        
+
+        stage('Creating Infrastructure on AWS') {
+            steps {
+                dir('eks') {
+                    sh 'terraform apply --auto-approve'
+                }
+            }
+        }
+
+        stage('Deploy OdooCRM') {
+            steps {
+                dir('eks') {
+                    sh 'aws eks update-kubeconfig --name odoocrm'
+                    sh 'helm repo add bitnami https://charts.bitnami.com/bitnami'
+                    sh 'helm install my-odoo bitnami/odoo --version 21.2.9'
+                }
+            }
+        } 
+
+
     }
 }
