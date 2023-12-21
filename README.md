@@ -1,6 +1,8 @@
 # EKS Cluster Deployment OdooCRM on AWS with Jenkins and Helm Charts
 
 ![image](https://github.com/isaacfkessler/devops-pipeline-to-eks/assets/93961922/2c0b5de2-941d-421e-b1a6-b8bba8467e2d)
+### ODOO CRM
+![image](https://github.com/isaacfkessler/devops-pipeline-to-eks-odoocrm/assets/93961922/3ce6a4b0-f67a-4943-a9ba-0b6c1117da85)
 
 
 This project demonstrates how to deploy an EKS cluster on AWS using Jenkins.
